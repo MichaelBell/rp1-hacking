@@ -1,0 +1,9 @@
+MEMORY
+{
+    ram(rwx) : ORIGIN = 0x200007c8, LENGTH = 0x8
+}
+SECTIONS
+{
+    .text : { *(.text*) } > ram
+    .data : { *(.data*) *(.rodata*) } > ram
+}
