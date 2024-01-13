@@ -1,0 +1,19 @@
+MEMORY
+{
+    ram(rwx) : ORIGIN = 0x20007000, LENGTH = 0x9000
+}
+SECTIONS
+{
+    .boot : { *(.boot*)
+        KEEP (*(.boot))
+    } > ram
+    .text : { *(.text*) } > ram
+    .data : { *(.data*) *(.rodata*) } > ram
+    .bss : {
+        . = ALIGN(8);
+        __bss_start__ = .;
+        *(.bss*)
+        . = ALIGN(8);
+        __bss_end__ = .;
+    } > ram
+}

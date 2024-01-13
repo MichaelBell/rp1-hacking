@@ -18,15 +18,5 @@ blink_core1.elf: blink_core1.o
 %.bin: %.elf
 	arm-none-eabi-objcopy $< -O binary $@
 
-mmio_enable_hook: mmio_enable_hook.c
+mmio%: mmio%.c
 	gcc $< -o $@
-
-mmio_disable_hook: mmio_disable_hook.c
-	gcc $< -o $@
-
-mmio_view: mmio_view.c
-	gcc $< -o $@
-
-mmio_load: mmio_load.c
-	gcc $< -o $@
-

@@ -6,3 +6,4 @@ mmio_view
 mmio_rate
 mmio_enable_hook
 mmio_disable_hook
+mmio_start
