@@ -9,8 +9,8 @@ clean:
 %.o: %.c
 	arm-none-eabi-gcc -nostdlib -nostartfiles -ffreestanding -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -Wall -c $< -o $@
 
-oneshot.elf: start.o main.o
-	arm-none-eabi-ld start.o main.o -T memmap --gc-sections -o $@
+oneshot.elf: start.o main.o uart.o
+	arm-none-eabi-ld $^ -T memmap --gc-sections -o $@
 
 %.bin: %.elf
 	arm-none-eabi-objcopy $< -O binary $@
