@@ -1,4 +1,4 @@
-all: mmio_view
+all: mmio_view mmio_dump
 
 clean:
 	rm -f mmio_view
