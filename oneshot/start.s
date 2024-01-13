@@ -31,14 +31,5 @@ _bss_loop:
     bl main
     pop {r4,r5,r6,r7,lr}
 
-/* Clear interrupt implementation */
-    cmp r0, #0x1f
-    mov r3, #1
-    mov.w r2, #0xe000e000
-    bls 1f
-    subs r0, #0x20
-    add r3, #4
-1:  lsls r3, r0
-    str.w r3,[r2,#0x180]
-    bx lr
-
+    /* Resume to patched function */
+    b 0x200007c8
