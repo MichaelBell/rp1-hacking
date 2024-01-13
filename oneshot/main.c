@@ -1,8 +1,13 @@
 #include <stdint.h>
 
-void uart0_putc(int c) {
+int uart0_putc(int c) {
+    // spin while FIFO is full
+    while (*((volatile uint32_t*)(0x40030018)) & (1<<5));
+
     // send character to UART0
     *((volatile uint32_t*)(0x40030000)) = c & 0xFF;
+
+    return 1;
 }
 
 void uart0_puts(const char* s) {
@@ -25,5 +30,7 @@ void main() {
     *((volatile uint32_t*)(0x400e1000)) = (1 << 17);
 
     const char* hello = "Hello, from RP1!\r\n";
-    uart0_puts(hello);
+    for (int i = 0; i < 20; ++i) {
+        uart0_puts(hello);
+    }
 }
