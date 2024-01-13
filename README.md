@@ -60,3 +60,10 @@ Load the hook code for core0 and the blinky code for core1:
 
     sudo ./mmio_start
 
+## Credits
+
+This work builds on the reverse engineering work done by [G33katWork](https://github.com/G33KatWork/RP1-Reverse-Engineering/)
+
+Thanks to @clever on the Raspberry Pi discord for help and inspiration while getting this going.
+
+#
