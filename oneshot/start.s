@@ -13,8 +13,8 @@ _entry:
     ldr r7, =0xf04f281f
     str r7, [r6]
 
-    /* Setup UART 0 */
-	ldr r2, =0x40030000   // UART0 SET BASE
+    /* Setup UART 1 */
+	ldr r2, =0x40034000   // UART0 SET BASE
 	movs r1, #0x1b
 	str r1, [r2, #0x24]   // Set divisor to 115200 baud
 	movs r1, #0x8
@@ -24,13 +24,13 @@ _entry:
 	mov r1, #0x101
 	str r1, [r2, #0x30]   // UART CR: Enable, transmit only
 
-	mov r1, #0x84           // Function 4 (UART0)
+	mov r1, #0x82           // Function 2 (UART1)
     ldr r2, =0x400d0000
-	str r1, [r2, #0x74]   // GPIO 14
+	str r1, [r2, #0x4]   // GPIO 0
 
 	mov r1, #0x16           // Pads
     ldr r2, =0x400f0000
-	str r1, [r2, #0x3c]   // GPIO 14
+	str r1, [r2, #0x4]   // GPIO 0
 
     /* Clear bss */
     ldr     r4, =__bss_start__
