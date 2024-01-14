@@ -3,6 +3,10 @@
 .syntax unified
 
 .section .text
+.globl _entry_vec
+    .word 0x10003ffc  // Initial SP
+    .word _entry
+    
 .align 2
 .thumb_func
 .globl _entry
