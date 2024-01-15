@@ -1,4 +1,4 @@
-all: launch_core1.bin core1.bin blink_core1.bin mmio_enable_hook mmio_load
+all: launch_core1.bin core1.bin blink_core1.bin mmio_enable_hook mmio_load core1_test
 
 clean:
 	rm -f *.o *.elf *.bin mmio_enable_hook mmio_disable_hook mmio_load
@@ -20,3 +20,6 @@ blink_core1.elf: blink_core1.o
 
 mmio%: mmio%.c
 	gcc $< -o $@
+
+core1_test: core1_test.c
+	gcc $< -o $@ -Wall
