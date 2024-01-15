@@ -29,7 +29,7 @@ Then build everything:
 
 Load the blinky example and run it on core1:
 
-    sudo ./core_test -f blink_core1.bin
+    sudo ./core1_test -f blink_core1.bin
 
 If everything's working GPIO 17 should now be blinking, driven by the RP1 core1.
 
