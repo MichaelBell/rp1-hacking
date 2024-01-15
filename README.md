@@ -16,8 +16,6 @@ My version is
 
 This uses the hook to launch the second core (core 1, the first core is core 0) at `0x20008000`.
 
-The current code then uses the second core to blinks an LED connected to GPIO 17.
-
 ### Building and running
 
 You'll need to install the arm-none-eabi toolchain to build RP1 binaries:
@@ -26,15 +24,12 @@ You'll need to install the arm-none-eabi toolchain to build RP1 binaries:
 
 Then build everything:
 
+    cd launch_core1
     make
 
-Load the hook code for core0 and the blinky code for core1:
+Load the blinky example and run it on core1:
 
-    sudo ./mmio_load
-
-Enable the hook:
-
-    sudo ./mmio_enable_hook
+    sudo ./core_test -f blink_core1.bin
 
 If everything's working GPIO 17 should now be blinking, driven by the RP1 core1.
 
@@ -66,4 +61,3 @@ This work builds on the reverse engineering work done by [G33katWork](https://gi
 
 Thanks to @clever on the Raspberry Pi discord for help and inspiration while getting this going.
 
-#
