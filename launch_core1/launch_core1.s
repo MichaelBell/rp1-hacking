@@ -15,24 +15,6 @@ _entry:
     add r7, #1
     str r7, [r6]
 
-    /* Set the SP for core1 from 0x20008000 in the watchdog */
-    ldr r0, =0x20008000
-    ldr r7, =0x40154010
-    ldr r1, [r0]
-    str r1, [r7, #0xc]
-
-    /* Load the adress to boot core1 at from 0x20008004 */
-    ldr r1, [r0, #4]
-
-    /* XOR with magic number and set to watchdog */
-    ldr r6, =0x4FF83F2D
-    eor r1, r1, r6
-    str r1, [r7, #4]
-
-    /* Set magic number to allow boot */
-    ldr r6, =0xB007C0DE
-    str r6, [r7]
-
     /* Launch core1 */
     sev
 
