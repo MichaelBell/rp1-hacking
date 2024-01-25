@@ -55,9 +55,14 @@ Load the hook code for core0 and the blinky code for core1:
 
     sudo ./mmio_start
 
+## Other information
+
+Details about the [PIO](PIO.md) registers (found at `0xf000_0000` from the RP1).
+
+The 3 RIO register banks can be found at `0xf000_4000`, `0xf000_8000` and `0xf000_c000`, giving private uncontested access from the RP1.  These corresponding to the 3 GPIO banks on the RP1.  (They are also accessible at `0x400e0000`, `0x400e4000` and `0x400e8000`, as documented in the datasheet.)
+
 ## Credits
 
 This work builds on the reverse engineering work done by [G33katWork](https://github.com/G33KatWork/RP1-Reverse-Engineering/)
 
 Thanks to @clever on the Raspberry Pi discord for help and inspiration while getting this going.
-
