@@ -10,7 +10,7 @@ This means that configuring the PIO requires running code on the RP1.  Until Ras
 
 ## RP1 register documentation
 
-The register layout at `0xf000_0000` is general very similar to te RP2040.  Differences are documented below - for the known registers refer to section 3.7 of the RP2040 datasheet.
+The register layout at `0xf000_0000` is general very similar to the RP2040.  Differences are documented below - for the known registers refer to section 3.7 of the RP2040 datasheet.
 
 | Offset  | Register | Notes |
 | ------  | -------- | ----- |
