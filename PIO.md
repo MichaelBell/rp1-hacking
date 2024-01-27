@@ -34,8 +34,8 @@ The register layout at `0xf000_0000` is general very similar to the RP2040.  Dif
 | 0xd8, etc | SMx_ADDR | No known differences from RP2040 |
 | 0xdc, etc | SMx_INSTR | No known differences from RP2040 |
 | 0xe0, etc | SMx_PINCTRL | No known differences from RP2040 |
-| 0xe4, etc | SMx_DMATX | 31: Enable DREQ, 30: Current DREQ status, 11-7: Unknown, 4-0: DREQ threshold (DREQ asserted when TX FIFO below this level) |
-| 0xe8, etc | SMx_DMARX? | (Speculative) 31: Enable DREQ, 30: Current DREQ status, 11-7: Unknown, 4-0: Unknown |
+| 0xe4, etc | SMx_DMATX | 31: Enable DREQ, 30: Current DREQ status, 11-7: Priority?, 4-0: DREQ threshold (DREQ asserted when TX FIFO below this level) |
+| 0xe8, etc | SMx_DMARX | 31: Enable DREQ, 30: Current DREQ status, 11-7: Priority? (lower seems faster), 4-0: DREQ threshold (DREQ asserted when RX FIFO >= this level) |
 | 0x14c     | INTR | No known differences from RP2040 |
 | 0x150 - 0x168 | Interrupt control | Likely the same as RP2040 - not tested |
 
